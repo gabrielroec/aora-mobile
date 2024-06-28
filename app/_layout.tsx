@@ -1,4 +1,4 @@
-import { Slot, Stack, SplashScreen } from "expo-router";
+import { Stack, SplashScreen } from "expo-router";
 import { useFonts } from "expo-font";
 import { useEffect } from "react";
 
@@ -19,8 +19,7 @@ const RootLayout = () => {
 
   useEffect(() => {
     if (error) throw error;
-
-    if (fontsLoaded) SplashScreen.hideAsync;
+    if (fontsLoaded) SplashScreen.hideAsync();
   }, [fontsLoaded, error]);
 
   if (!fontsLoaded && !error) return null;
