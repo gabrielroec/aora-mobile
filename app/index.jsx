@@ -28,11 +28,11 @@ const App = () => {
               <Text className="text-secondary-200">Aora</Text>
             </Text>
 
-            <Image
+            {/* <Image
               source={images.path}
               className="w-[136px] h-[15px] absolute right-0 bottom-[130px]"
               resizeMode="contain"
-            />
+            /> */}
             <Text className="text-xs text-white/70 text-center mt-4 font-pregular">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem
               asperiores suscipit, ab minima.
