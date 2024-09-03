@@ -4,30 +4,26 @@ import { images } from "../../constants";
 import React, { useState } from "react";
 import FormField from "../../components/FormField";
 import CustomButton from "../../components/CustomButton";
-import { Link } from "expo-router";
+import { Link, useRouter } from "expo-router";
 
 const SignUp = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const router = useRouter();
   const [form, setForm] = useState({
     username: "",
     email: "",
     password: "",
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const submit = () => {};
+  const submit = async () => {
+    router.push("/home");
+  };
   return (
     <SafeAreaView className="bg-primary h-full">
       <ScrollView>
         <View className="min-h-[80vh] justify-center h-full px-4 my-6">
-          <Image
-            source={images.logo}
-            resizeMode="contain"
-            className="w-[115px] h-[35px]"
-          />
-          <Text className="text-2xl text-white text-smibold mt-10 font-psemibold">
-            Sign up to Aora
-          </Text>
+          <Image source={images.logo} resizeMode="contain" className="w-[115px] h-[35px]" />
+          <Text className="text-2xl text-white text-smibold mt-10 font-psemibold">Sign up to Aora</Text>
 
           <FormField
             title="Username"
@@ -52,21 +48,11 @@ const SignUp = () => {
             keyBoardType="password"
           />
 
-          <CustomButton
-            title="Sign up"
-            handlePress={submit}
-            containerStyles="mt-7"
-            isLoading={isSubmitting}
-          />
+          <CustomButton title="Sign up" handlePress={submit} containerStyles="mt-7" isLoading={isSubmitting} />
 
           <View className="justify-center pt-5 flex-row gap-2">
-            <Text className="text-lg text-gray-100 font-pregular">
-              Have an account already?
-            </Text>
-            <Link
-              href="/sign-in"
-              className="text-lg font-psemibold text-secondary"
-            >
+            <Text className="text-lg text-gray-100 font-pregular">Have an account already?</Text>
+            <Link href="/sign-in" className="text-lg font-psemibold text-secondary">
               Sign In
             </Link>
           </View>
